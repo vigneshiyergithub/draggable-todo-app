@@ -41,11 +41,18 @@ function App() {
   useEffect(() => {
     setTodosToLocalStorage(todos);
   }, [todos]);
+  const onTodoDelete = (id) => {
+    setTodos((_t) => _t.filter((t) => t.id !== id));
+  };
   return (
     <div className="App">
       <header>Draggable Todo List</header>
       <TodoInput onTodoAdd={onTodoAdd} />
-      <TodoContent todos={todos} onTodoDrag={onTodoDrag} />
+      <TodoContent
+        todos={todos}
+        onTodoDrag={onTodoDrag}
+        onTodoDelete={onTodoDelete}
+      />
     </div>
   );
 }

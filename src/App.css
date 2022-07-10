@@ -72,3 +72,19 @@ header {
   background-color: #fffdac;
   color: black;
 }
+
+.delete-drag-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.delete-drag-box {
+  border: 1px solid black;
+  padding: 1rem;
+  min-width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

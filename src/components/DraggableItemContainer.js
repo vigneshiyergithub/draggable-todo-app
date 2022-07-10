@@ -7,6 +7,8 @@ const DraggableItemContainer = ({
   todos = [],
   onTodoDrag,
   state,
+  onDragActive,
+  onTodoDelete,
 }) => {
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: ITEM_TYPES.TODO,
@@ -22,10 +24,20 @@ const DraggableItemContainer = ({
   };
   return (
     <div className="draggable-item-container" ref={drop} style={style}>
-      <h4 className="title">{title}</h4>
+      <h4 className="title">
+        {title} - [{todos.length}]
+      </h4>
       <div className="content">
         {todos.map((t) => {
-          return <DraggableItem key={t.id} todo={t} onTodoDrag={onTodoDrag} />;
+          return (
+            <DraggableItem
+              key={t.id}
+              todo={t}
+              onTodoDrag={onTodoDrag}
+              onDragActive={onDragActive}
+              onTodoDelete={onTodoDelete}
+            />
+          );
         })}
       </div>
     </div>
